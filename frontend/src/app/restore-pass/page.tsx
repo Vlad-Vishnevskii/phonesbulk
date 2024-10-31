@@ -24,6 +24,9 @@ export default async function RestorePassPage() {
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/mainpage?populate[content][populate]=*`,
+    {
+      cache: 'no-store',  // Отключение кэширования
+    }
   );
 
   return res.json();

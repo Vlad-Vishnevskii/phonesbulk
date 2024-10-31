@@ -18,7 +18,9 @@ export async function fetchProducts(
   url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/products?filters[brand][$containsi]=${filter}&filters[model][$containsi]=${query}${best.length > 0 ? `&filters[${best}][$eq]=true` : ""}&sort=${sort}&pagination[pageSize]=${perPage}&pagination[page]=${page}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      cache: 'no-store',  // Отключение кэширования
+    });
     const data = await response.json();
     return data.data as ProductData[];
   } catch (error) {

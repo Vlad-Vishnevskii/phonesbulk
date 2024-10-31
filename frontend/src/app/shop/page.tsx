@@ -9,6 +9,9 @@ import { fetchProducts } from "../actions";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/shoppage?populate[content][populate][menuitem][populate]=*&populate[content][populate][information][populate]=*&populate[content][populate][custumerservice][populate]=*&populate[content][populate][contactus][populate]=*`,
+    {
+      cache: 'no-store',  // Отключение кэширования
+    }
   );
 
   return res.json();

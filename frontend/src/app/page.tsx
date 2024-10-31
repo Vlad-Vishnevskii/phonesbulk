@@ -9,6 +9,9 @@ import WhatsAppCall from "@/components/WhatsapCall/WhatsAppCall";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/mainpage?populate[content][populate][menuitem][populate]=*&populate[content][populate][background][populate]=*&populate[content][populate][information][populate]=*&populate[content][populate][custumerservice][populate]=*&populate[content][populate][contactus][populate]=*&populate[content][populate][adventage][populate]=*&populate[content][populate][tcitem][populate]=*&populate[content][populate][image][populate]=*&populate[content][populate][faqitem][populate]=*`,
+    {
+      cache: 'no-store',  // Отключение кэширования
+    }
   );
 
   return res.json();
