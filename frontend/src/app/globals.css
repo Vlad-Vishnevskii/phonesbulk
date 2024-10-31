@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+}
+input:focus {
+  outline: none !important;
+}
+@layer base {
+  :root {
+    --base_green: #5aa22d;
+    --dark_green: #145c00;
+    --light_green: #a0e873;
+    --acsent_orange: #ff8a01;
+    --active_orange: #ff6701;
+    --acsent_red: #fb0f0f;
+    --dark_grey: #2f2f2f;
+    --medium_grey: #757575;
+    --base_grey: #d9d9d9;
+    --ligth_grey: #f2f2f2;
+    --white: #ffffff;
+    --black: #000000;
+  }
+}
+@layer components {
+  /* Container */
+  .wrapper {
+    @apply relative mx-auto  w-full max-w-[1440px];
+  }
+  /* Navbar */
+  .navbar {
+    @apply fixed inset-x-0 top-0 z-50 flex h-12 w-full max-w-[1440px] translate-x-1/2 items-center justify-between rounded-b-2xl bg-base_green px-4 py-2 sm:h-8 sm:py-1 sm:pr-2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Buttons */
+  .btn_login {
+    @apply h-8 bg-acsent_orange px-5 text-white hover:bg-active_orange sm:h-6 sm:px-4 sm:py-[2px] sm:text-xs;
+  }
+  .btn_shop {
+    @apply z-10 translate-y-48 bg-acsent_orange px-10 py-4 text-white hover:bg-active_orange sm:mx-auto sm:py-5 sm:text-lg;
+  }
+  /* Cart */
+  .cart {
+    @apply relative flex items-center;
+  }
+  .cart_badge {
+    @apply absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-acsent_red p-1 text-xs font-bold leading-none text-white sm:size-4 sm:text-[10px];
+  }
+  /* Hero */
+  .overlay {
+    @apply absolute inset-0 -z-20 h-screen w-full max-w-[1440px] bg-black;
+  }
+  .hero_bg {
+    @apply absolute inset-0 -z-50 h-screen w-full max-w-[1440px] bg-hero bg-cover bg-fixed bg-center bg-no-repeat;
+  }
+  .hero_wrapper {
+    @apply mb-10 flex h-[calc(100dvh-50px)] max-h-[784] w-full flex-col items-start justify-center pl-20 md:pl-8 sm:mb-0 sm:h-[100dvh];
+  }
+  .hero_text {
+    @apply z-20 mb-10 w-full translate-y-48 font-inter text-6xl font-semibold leading-tight text-white md:text-5xl sm:mb-4 sm:translate-y-32;
+  }
+  .hero_text_acsent {
+    @apply bg-gradient-to-b from-acsent_orange to-acsent_red bg-clip-text font-extrabold text-transparent;
+  }
+  .header_h2 {
+    @apply mb-2 pt-3 text-4xl font-black text-dark_grey lg:text-3xl md:pt-6 sm:mb-0 sm:text-center sm:text-base;
+  }
+  .header_h3 {
+    @apply mb-2 pt-3 text-4xl font-black text-acsent_orange sm:mb-0 sm:text-center sm:text-lg;
+  }
+}
+
+@layer utilities {
+  .bg-radial-gradient {
+    background-image: radial-gradient(circle at 50% 50%, #ffff, #a0e873 50%);
+  }
+}
