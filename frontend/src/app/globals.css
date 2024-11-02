@@ -62,7 +62,7 @@ input:focus {
     @apply absolute inset-0 -z-20 h-screen w-full max-w-[1440px] bg-black;
   }
   .hero_bg {
-    @apply absolute inset-0 -z-50 h-screen w-full max-w-[1440px] bg-hero bg-cover bg-fixed bg-center bg-no-repeat;
+    @apply absolute inset-0 -z-50 h-screen w-full max-w-[1440px] bg-hero bg-cover bg-center bg-no-repeat;
   }
   .hero_wrapper {
     @apply mb-10 flex h-[calc(100dvh-50px)] max-h-[784] w-full flex-col items-start justify-center pl-20 md:pl-8 sm:mb-0 sm:h-[100dvh];
