@@ -37,6 +37,7 @@ export default async function Home() {
           bg={content[1].background}
           text={textToHero}
           buttonText={content[1].buttontext}
+          subscribeLink={content[1].subscribe}
         />
         <OurCompany content={content[2]} />
         <Terms content={content[3]} />

@@ -20,10 +20,12 @@ export default function Hero({
   bg,
   text,
   buttonText,
+  subscribeLink,
 }: {
   bg: BgProps;
   text: TextType;
   buttonText: string;
+  subscribeLink: string;
 }) {
   const bgUrl = `url(${process.env.NEXT_STRAPI_URL + bg.data.attributes.url})`;
 
@@ -45,10 +47,17 @@ export default function Hero({
         </div>
         <Link
           href="/shop"
-          className="sm:mx-auto"
         >
           <Button style={"btn_shop"}>{buttonText}</Button>
         </Link>
+        {subscribeLink &&
+          <Link
+            href={subscribeLink}
+            className="mt-4"
+          >
+            <Button style={"btn_shop"}>Subscribe for updates</Button>
+          </Link>
+        }
         <Link
           href="#company"
           className="z-10 mx-auto mt-auto animate-bounce cursor-pointer sm:mb-8"
