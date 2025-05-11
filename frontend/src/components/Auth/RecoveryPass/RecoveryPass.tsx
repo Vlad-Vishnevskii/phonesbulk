@@ -70,7 +70,7 @@ export default function RecoveryPass() {
 
     if (Object.keys(newErrors).length === 0) {
       const password = formData.password;
-      const urlSearchParams = new URLSearchParams(searchParams);
+      const urlSearchParams = new URLSearchParams(searchParams.toString());
       const codeFromUrl = urlSearchParams.get("code");
       if (codeFromUrl) {
         setLoading(true);

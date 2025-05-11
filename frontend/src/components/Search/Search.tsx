@@ -28,7 +28,7 @@ export const Search = () => {
     par?: string,
     e?: React.KeyboardEvent<HTMLInputElement>,
   ) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
     if (term && par === "") {
       params.set("query", term);
