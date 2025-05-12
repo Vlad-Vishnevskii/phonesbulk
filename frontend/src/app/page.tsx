@@ -5,6 +5,8 @@ import { Navbar } from "@/components/Navbar/Navbar";
 import { OurCompany } from "@/components/OurCompany/OurCompany";
 import { Terms } from "@/components/Terms/Terms";
 import WhatsAppCall from "@/components/WhatsapCall/WhatsAppCall";
+import { SubscribeModal } from "@/components/SubscribeModal/SubscribeModal";
+
 
 async function getData() {
   const res = await fetch(
@@ -37,18 +39,20 @@ export default async function Home() {
           bg={content[1].background}
           text={textToHero}
           buttonText={content[1].buttontext}
-          subscribeLink={content[1].subscribe}
+          subscribeText={content[1].subscribeText}
+          subscribeLink={content[1].subscribeLink}
         />
         <OurCompany content={content[2]} />
         <Terms content={content[3]} />
         {/* <Faq content={content[4]} /> */}
         <Contacts content={content[5]} />
-        <WhatsAppCall link={content[5].contactus[0].link} />
+        <WhatsAppCall whatsAppLink={content[5].contactus[0].link} />
       </main>
       <Footer
         style="block"
         content={content[5]}
       />
+      <SubscribeModal link={content[1].modalSubscribeBtnLink} btnText={content[1].modalSubscribeBtnText} title={content[1].modalSubscribeTitle}/>      
     </>
   );
 }

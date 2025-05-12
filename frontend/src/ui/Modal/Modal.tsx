@@ -6,9 +6,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+  classname?: string;
 }
 
-function Modal({ isOpen, onClose, children }: ModalProps) {
+function Modal({ isOpen, onClose, classname, children }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,10 +39,10 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-30 flex h-screen w-full items-center justify-center">
-      <div className="absolute left-0 top-0 z-30 h-screen w-full bg-black/30 "></div>
+    <div className="fixed inset-0 z-30 flex h-screen w-[100vw] items-center justify-center">
+      <div className="absolute left-0 top-0 z-30 h-screen w-full bg-black/30"></div>
       <div
-        className="relative z-50 mt-10 min-h-[516px] w-[460px] overflow-hidden rounded-2xl bg-dark_grey shadow-lg sm:w-[95%]"
+        className={`relative z-50 mt-10 min-h-[516px] w-[460px] overflow-hidden rounded-2xl bg-dark_grey shadow-lg sm:w-[95%] ${classname || ''}`}
         ref={modalRef}
       >
         {children}

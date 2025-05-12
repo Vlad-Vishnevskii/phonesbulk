@@ -4,7 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const WhatsAppCall = ({ link }: any) => {
+type WhatsAppCallProps = {
+  whatsAppLink: string;
+};
+
+const WhatsAppCall = ({ whatsAppLink }: WhatsAppCallProps) => {
   const [isLastScreen, setIsLastScreen] = useState(false);
 
   useEffect(() => {
@@ -20,11 +24,12 @@ const WhatsAppCall = ({ link }: any) => {
 
   return (
     <div
-      className={`fixed bottom-0 right-0 z-50 mr-16 md:mr-8 ${isLastScreen ? "mb-32 sm:mb-24" : "mb-16 sm:mb-8"}`}
+      className={`fixed bottom-0 right-0 z-50 flex flex-col items-end mr-16 md:mr-5 ${isLastScreen ? "mb-32 sm:mb-24" : "mb-14 sm:mb-6"}`}
     >
       <Link
-        href={link}
+        href={whatsAppLink}
         target="_blank"
+        className="mb-3"
       >
         <Image
           src={"/assets/images/whatsap_img.svg"}
