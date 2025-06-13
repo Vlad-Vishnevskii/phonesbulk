@@ -3,9 +3,10 @@ import Container from "@/components/Container/container";
 import { getMeta } from "./actions";
 import "./globals.css";
 import { inter } from "@/lib/fonts";
+import { MetaEnum } from "./types";
 
 export async function generateMetadata() {
-  const meta = await getMeta(0);
+  const meta = await getMeta(MetaEnum.mainPage);
   return {
     title: meta.title,
     description: meta.description,

@@ -23,6 +23,7 @@ export const useAuthCheck = () => {
         if (
           currentPath !== "/" &&
           currentPath !== "/shop" &&
+          currentPath !== "/macbook" &&
           currentPath !== "/restore-pass"
         ) {
           router.push("/shop");

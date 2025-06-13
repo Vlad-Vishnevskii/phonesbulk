@@ -2,7 +2,7 @@ import { getMeta } from "../actions";
 import { MetaEnum } from "../types";
 
 export async function generateMetadata() {
-  const meta = await getMeta(MetaEnum.shopPage);
+  const meta = await getMeta(MetaEnum.laptopPage);
 
   return {
     title: meta.title,

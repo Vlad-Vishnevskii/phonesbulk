@@ -42,7 +42,7 @@ function Modal({ isOpen, onClose, classname, children }: ModalProps) {
     <div className="fixed inset-0 z-30 flex h-screen w-[100vw] items-center justify-center">
       <div className="absolute left-0 top-0 z-30 h-screen w-full bg-black/30"></div>
       <div
-        className={`relative z-50 mt-10 min-h-[516px] w-[460px] overflow-hidden rounded-2xl bg-dark_grey shadow-lg sm:w-[95%] ${classname || ''}`}
+        className={`relative z-50 mt-10 w-[460px] overflow-hidden rounded-2xl bg-dark_grey shadow-lg ${classname ? '' : 'min-h-[516px] sm:w-[95%]'} ${classname || ''}`}
         ref={modalRef}
       >
         {children}

@@ -39,7 +39,8 @@ export default async function Shop({
   const filter = searchParams?.filter || "";
   const best = searchParams?.bestprice || searchParams?.bestseller || "";
 
-  const products = (await fetchProducts(query, sort, 1, filter, best, CategoryType.phone)) ?? [];
+  
+  const products = (await fetchProducts(query, sort, 1, filter, best, CategoryType.laptop)) ?? [];
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -55,9 +56,10 @@ export default async function Shop({
           sort={sort}
           filter={filter}
           best={best}
-          category={CategoryType.phone}
+          category={CategoryType.laptop}
         />
       </main>
+
       <Footer
         style="fixed"
         content={content[1]}

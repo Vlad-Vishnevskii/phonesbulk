@@ -8,6 +8,7 @@ import { Loader } from "@/ui/Loader/Loader";
 import { ProductData } from "@/types/product";
 
 import { Products } from "../Product/Products";
+import { CategoryType } from "@/app/types";
 
 import { fetchProducts } from "@/app/actions";
 
@@ -16,12 +17,14 @@ export const LoadMore = ({
   sort,
   filter,
   best,
+  category,
 }: {
   query?: string;
   sort?: string;
   page?: number;
   filter: string;
   best: string;
+  category: CategoryType;
 }) => {
   const [products, setProducts] = useState<ProductData[]>([]);
   const [pagesLoaded, setPagesLoaded] = useState(1);
@@ -35,7 +38,7 @@ export const LoadMore = ({
     await delay(2000);
     const nextPage = pagesLoaded + 1;
     const newProducts =
-      (await fetchProducts(query, sort, nextPage, filter, best)) ?? [];
+      (await fetchProducts(query, sort, nextPage, filter, best, category)) ?? [];
     if (newProducts.length === 0) {
       setHasMoreData(false); // Обновляем состояние, если данных больше нет
     } else {

@@ -9,13 +9,38 @@ export async function fetchProducts(
   sort = "",
   page = 1,
   filter = "",
-
   best = "",
+  category = "",
 ) {
   const perPage = 18;
-  let url = "";
 
-  url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/products?filters[brand][$containsi]=${filter}&filters[model][$containsi]=${query}${best.length > 0 ? `&filters[${best}][$eq]=true` : ""}&sort=${sort}&pagination[pageSize]=${perPage}&pagination[page]=${page}`;
+  let url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/products?`;
+
+    // Filter by model name
+    url += `filters[model][$containsi]=${query || ""}`;
+
+    // Filter by brand (from 'filter' param)
+    if (filter) {
+      url += `&filters[brand][$containsi]=${filter}`;
+    }
+
+    // Filter by category
+    if (category) {
+      url += `&filters[category][$eq]=${category}`;
+    }
+
+    // Filter by bestprice or bestseller
+    if (best.length > 0) {
+      url += `&filters[${best}][$eq]=true`;
+    }
+
+    // Sorting
+    if (sort) {
+      url += `&sort=${sort}`;
+    }
+
+    // Pagination
+    url += `&pagination[pageSize]=${perPage}&pagination[page]=${page}`;
 
   try {
     const response = await fetch(url, {

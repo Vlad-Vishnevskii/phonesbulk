@@ -41,7 +41,7 @@ export const SubscribeModal = ({ title = 'Join our WhatsApp group for stock upda
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
-        classname="sm:w-[90%] text-white p-7 min-h-[50px] flex flex-col items-center"
+        classname="text-white p-7 flex flex-col items-center min-h-[50px] sm:w-[90%]"
       >
         <button onClick={closeModal} className="absolute right-2 top-2">
             <svg width="25" height="25" viewBox="0 0 32 32"><path fill="currentColor" d="M17.414 16L24 9.414L22.586 8L16 14.586L9.414 8L8 9.414L14.586 16L8 22.586L9.414 24L16 17.414L22.586 24L24 22.586z"/></svg>
