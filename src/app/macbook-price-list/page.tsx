@@ -3,16 +3,16 @@ import { LoadMore } from "@/components/LoadMore/LoadMore";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { Products } from "@/components/Product/Products";
 import { Search } from "@/components/Search/Search";
-import { CategoryType } from "../types";
 
 import { fetchProducts } from "../actions";
+import { CategoryType } from "../types";
 
 async function getData() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/shoppage?populate[content][populate][menuitem][populate]=*&populate[content][populate][information][populate]=*&populate[content][populate][custumerservice][populate]=*&populate[content][populate][contactus][populate]=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/mackbookprice?populate[content][populate][menuitem][populate]=*&populate[content][populate][information][populate]=*&populate[content][populate][custumerservice][populate]=*&populate[content][populate][contactus][populate]=*`,
     {
-      cache: 'no-store',  // Отключение кэширования
-    }
+      cache: "no-store", // Отключение кэширования
+    },
   );
 
   return res.json();
@@ -39,8 +39,9 @@ export default async function Shop({
   const filter = searchParams?.filter || "";
   const best = searchParams?.bestprice || searchParams?.bestseller || "";
 
-  
-  const products = (await fetchProducts(query, sort, 1, filter, best, CategoryType.laptop)) ?? [];
+  const products =
+    (await fetchProducts(query, sort, 1, filter, best, CategoryType.laptop)) ??
+    [];
 
   return (
     <div className="flex min-h-screen w-full flex-col">
