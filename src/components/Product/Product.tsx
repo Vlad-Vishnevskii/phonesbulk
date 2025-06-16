@@ -14,6 +14,8 @@ import { ProductData } from "@/types/product";
 export const Product = ({ product }: { product: ProductData }) => {
   const [productCopy, setProductCopy] = useState({ ...product, quantity: 30 });
 
+  const { model, capacity, grade } = product.attributes;
+
   const { cart, addToCart } = useCartStore();
   const exists = cart.some(item => item.id === product.id);
 
@@ -30,7 +32,7 @@ export const Product = ({ product }: { product: ProductData }) => {
         <div className=" group flex w-full justify-between rounded-xl bg-ligth_grey hover:bg-dark_green sm:rounded-md">
           <div className="flex w-full items-center">
             <div className="table-cell max-w-[550px] p-1 group-hover:text-white sm:w-[160px] sm:text-[9px] ">
-              {product.attributes.model}
+              {`${model} ${capacity} ${grade}`}
             </div>
           </div>
           <div className="flex items-center">
